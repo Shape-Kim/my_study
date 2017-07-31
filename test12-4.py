@@ -8,9 +8,9 @@ import os
 
 tf.set_random_seed(777)  # reproducibility
 
-if "DISPLAY" not in os.environ:
+# if "DISPLAY" not in os.environ:
     # remove Travis CI Error
-    matplotlib.use('Agg')
+    # matplotlib.use('Agg')
 
 import matplotlib.pyplot as plt
 
@@ -108,8 +108,7 @@ with tf.Session() as sess:
 
     # Test step
     test_predict = sess.run(Y_pred, feed_dict={X: testX})
-    rmse_val = sess.run(rmse, feed_dict={
-                    targets: testY, predictions: test_predict})
+    rmse_val = sess.run(rmse, feed_dict={targets: testY, predictions: test_predict})
     print("RMSE: {}".format(rmse_val))
 
     # Plot predictions
